@@ -3,7 +3,7 @@
 
 [![Cloud Posse](https://cloudposse.com/logo-300x69.svg)](https://cloudposse.com)
 
-# terraform-aws-iam-user [![Latest Release](https://img.shields.io/github/release/cloudposse/terraform-aws-iam-user.svg)](https://github.com/cloudposse/terraform-aws-iam-user/releases/latest) [![Slack Community](https://slack.cloudposse.com/badge.svg)](https://slack.cloudposse.com)
+# geodesic-aws-atlantis [![Latest Release](https://img.shields.io/github/release/cloudposse/geodesic-aws-atlantis.svg)](https://github.com/cloudposse/geodesic-aws-atlantis/releases/latest) [![Slack Community](https://slack.cloudposse.com/badge.svg)](https://slack.cloudposse.com)
 
 
 Deploy the Atlantis Server with ECS Fargate. This should be used as a git submodule with [`geodesic`](https://github.com/cloudposse/geodesic).
@@ -153,7 +153,7 @@ For additional context, refer to some of these links.
 
 **Got a question?**
 
-File a GitHub [issue](https://github.com/cloudposse/terraform-aws-iam-user/issues), send us an [email][email] or join our [Slack Community][slack].
+File a GitHub [issue](https://github.com/cloudposse/geodesic-aws-atlantis/issues), send us an [email][email] or join our [Slack Community][slack].
 
 ## Commercial Support
 
@@ -180,7 +180,7 @@ Get access to our [Open Source Community Forum][slack] on Slack. It's **FREE** t
 
 ### Bug Reports & Feature Requests
 
-Please use the [issue tracker](https://github.com/cloudposse/terraform-aws-iam-user/issues) to report any bugs or file feature requests.
+Please use the [issue tracker](https://github.com/cloudposse/geodesic-aws-atlantis/issues) to report any bugs or file feature requests.
 
 ### Developing
 

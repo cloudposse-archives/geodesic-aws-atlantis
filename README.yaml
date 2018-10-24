@@ -5,19 +5,19 @@
 #
 
 # Name of this project
-name: terraform-aws-iam-user
+name: geodesic-aws-atlantis
 
 # License of this project
 license: "APACHE2"
 
 # Canonical GitHub repo
-github_repo: cloudposse/terraform-aws-iam-user
+github_repo: cloudposse/geodesic-aws-atlantis
 
 # Badges to display
 badges:
   - name: "Latest Release"
-    image: "https://img.shields.io/github/release/cloudposse/terraform-aws-iam-user.svg"
-    url: "https://github.com/cloudposse/terraform-aws-iam-user/releases/latest"
+    image: "https://img.shields.io/github/release/cloudposse/geodesic-aws-atlantis.svg"
+    url: "https://github.com/cloudposse/geodesic-aws-atlantis/releases/latest"
   - name: "Slack Community"
     image: "https://slack.cloudposse.com/badge.svg"
     url: "https://slack.cloudposse.com"
