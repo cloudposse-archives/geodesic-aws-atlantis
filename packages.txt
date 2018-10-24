@@ -1,0 +1,6 @@
+# Essential alpine packages
+atlantis@cloudposse==0.4.10-r0
+bash
+chamber@cloudposse
+fargate@cloudposse
+gosu@cloudposse
