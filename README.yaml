@@ -1,0 +1,145 @@
+---
+#
+# This is the canonical configuration for the `README.md`
+# Run `make readme` to rebuild the `README.md`
+#
+
+# Name of this project
+name: geodesic-aws-atlantis
+
+# License of this project
+license: "APACHE2"
+
+# Canonical GitHub repo
+github_repo: cloudposse/geodesic-aws-atlantis
+
+# Badges to display
+badges:
+  - name: "Latest Release"
+    image: "https://img.shields.io/github/release/cloudposse/geodesic-aws-atlantis.svg"
+    url: "https://github.com/cloudposse/geodesic-aws-atlantis/releases/latest"
+  - name: "Slack Community"
+    image: "https://slack.cloudposse.com/badge.svg"
+    url: "https://slack.cloudposse.com"
+
+related:
+  - name: "geodesic"
+    description: "Geodesic is the fastest way to get up and running with a rock solid, production grade cloud platform built on strictly Open Source tools."
+    url: "https://github.com/cloudposse/geodesic"
+  - name: "packages"
+    description: "Cloud Posse installer and distribution of native apps and alpine (apk) packages"
+    url: "https://github.com/cloudposse/packages"
+  - name: "build-harness"
+    description: "Collection of Makefiles to facilitate building Golang projects, Dockerfiles, Helm charts, and more"
+    url: "https://github.com/cloudposse/build-harness"
+
+references:
+  - name: "terraform-root-modules"
+    description: "Collection of Terraform \"root module\" invocations for provisioning reference architectures"
+    url: "https://github.com/cloudposse/terraform-root-modules"
+
+  - name: "root.cloudposse.co"
+    description: "Example Terraform Reference Architecture of a Geodesic Module for a Parent (\"Root\") Organization in AWS."
+    url: "https://github.com/cloudposse/root.cloudposse.co"
+
+  - name: "audit.cloudposse.co"
+    description: "Example Terraform Reference Architecture of a Geodesic Module for an Audit Logs Organization in AWS."
+    url: "https://github.com/cloudposse/audit.cloudposse.co"
+
+  - name: "prod.cloudposse.co"
+    description: "Example Terraform Reference Architecture of a Geodesic Module for a Production Organization in AWS."
+    url: "https://github.com/cloudposse/prod.cloudposse.co"
+
+  - name: "staging.cloudposse.co"
+    description: "Example Terraform Reference Architecture of a Geodesic Module for a Staging Organization in AWS."
+    url: "https://github.com/cloudposse/staging.cloudposse.co"
+
+  - name: "dev.cloudposse.co"
+    description: "Example Terraform Reference Architecture of a Geodesic Module for a Development Sandbox Organization in AWS."
+    url: "https://github.com/cloudposse/dev.cloudposse.co"
+ 
+# Short description of this project
+description: |-
+  Deploy the Atlantis Server with ECS Fargate. This should be used as a git submodule with [`geodesic`](https://github.com/cloudposse/geodesic).
+
+# How to use this project
+usage: |-
+  ### Write secrets to Chamber
+
+  Atlantis will be invoked with chamber to expose the secrets as environment variables.
+
+  **IMPORTANT** Make sure to write the parameters to the same region as your ECS tasks.
+
+  ```
+  # Allow atlantis to process `atlantis.yaml`
+  chamber write atlantis ATLANTIS_ALLOW_REPO_CONFIG true
+
+  # Set the log verbosity
+  chamber write atlantis ATLANTIS_LOG_LEVEL debug
+
+  # Set the listen port for atlantis
+  chamber write atlantis ATLANTIS_PORT 4141
+
+  # Set the atlantis webhook base URL
+  chamber write atlantis ATLANTIS_ATLANTIS_URL https://atlantis.ourcomain.com
+
+  # Set the GitHub user corresponding to the personal access token
+  chamber write atlantis ATLANTIS_GH_USER outcompanybot
+
+  # Set the GitHub personal access token corresponding to the github user
+  chamber write atlantis ATLANTIS_GH_TOKEN the-token-generated-by-github
+
+  # Set the WebHook callback secret
+  chamber write atlantis ATLANTIS_GH_WEBHOOK_SECRET $(uuidgen)
+
+  # Set the permitted repositories
+  chamber write atlantis ATLANTIS_REPO_WHITELIST 'github.com/cloudposse/*'
+
+  # Permissions granted to teams
+  chamber write atlantis ATLANTIS_GH_TEAM_WHITELIST engineering:plan,testing:*
+
+  # Configuration this atlantis server will monitor
+  chamber write atlantis ATLANTIS_REPO_CONFIG atlantis/testing.yaml
+
+  # Command that atlantis will watch for
+  chamber write atlantis ATLANTIS_WAKE_WORD atlantis/testing
+
+  # Docker image to use with ECS
+  chamber write atlantis ATLANTIS_IMAGE cloudposse/testing.cloudposse.co:dev
+
+  # ACM Certificate domain
+  chamber write atlantis ATLANTIS_DOMAIN ourcompany.com
+
+  # ACM Alternative name
+  chamber write atlantis ATLANTIS_HOSTNAME atlantis.ourcompany.com
+
+  # Stage that we're operating under
+  chamber write atlantis STAGE testing
+
+  ```
+
+
+  ### Deploy Atlantis on ECS Fargate
+
+  This commands are asynchronous. You may need to retry them multiple times. 
+
+  ```
+  chamber exec atlantis -- make create/iam-role
+  chamber exec atlantis -- make create/certificate
+  chamber exec atlantis -- make validate/certificate
+  chamber exec atlantis -- make create/lb
+  chamber exec atlatnis -- make create/service
+  ```
+
+include:
+  - "docs/targets.md"
+
+# Contributors to this project
+contributors:
+  - name: "Erik Osterman"
+    github: "osterman"
+  - name: "Igor Rodionov"
+    github: "goruha"
+  - name: "Andriy Knysh"
+    github: "aknysh"
+
