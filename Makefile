@@ -1,13 +1,13 @@
 CLUSTER ?= fargate
-ATLANTIS_IMAGE ?= cloudposse/testing.cloudposse.co:dev
-ATLANTIS_DOMAIN ?= testing.cloudposse.co
-ATLANTIS_HOSTNAME ?= atlantis.testing.cloudposse.co
+
 AWS_DEFAULT_REGION := us-east-1
 IAM_ROLE ?= atlantis
 
 install:
 	apk add --update $$(grep -v '^#' packages.txt)
 	ln -s $$(pwd)/atlantis-server /etc/init.d/atlantis-server.sh
+	curl -o https://github.com/cloudposse/atlantis/releases/download/0.5.2/atlantis_linux_amd64 /usr/bin/atlantis
+	chmod 755 /usr/bin/atlantis
 
 docker/run:
 	docker run -e ATLANTIS_ENABLED=true -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e AWS_SESSION_TOKEN -e AWS_SECURITY_TOKEN -it $(ATLANTIS_IMAGE)
