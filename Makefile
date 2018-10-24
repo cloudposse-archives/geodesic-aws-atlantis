@@ -6,7 +6,7 @@ IAM_ROLE ?= atlantis
 install:
 	apk add --update $$(grep -v '^#' packages.txt)
 	ln -s $$(pwd)/atlantis-server /etc/init.d/atlantis-server.sh
-	curl -o https://github.com/cloudposse/atlantis/releases/download/0.5.2/atlantis_linux_amd64 /usr/bin/atlantis
+	curl -o /usr/bin/atlantis https://github.com/cloudposse/atlantis/releases/download/0.5.2/atlantis_linux_amd64
 	chmod 755 /usr/bin/atlantis
 
 docker/run:
