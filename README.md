@@ -131,7 +131,7 @@ Available targets:
 Check out these related projects.
 
 - [geodesic](https://github.com/cloudposse/geodesic) - Geodesic is the fastest way to get up and running with a rock solid, production grade cloud platform built on strictly Open Source tools.
-- [Packages](https://github.com/cloudposse/packages) - Cloud Posse installer and distribution of native apps
+- [packages](https://github.com/cloudposse/packages) - Cloud Posse installer and distribution of native apps and alpine (apk) packages
 - [build-harness](https://github.com/cloudposse/build-harness) - Collection of Makefiles to facilitate building Golang projects, Dockerfiles, Helm charts, and more
 
 
