@@ -9,7 +9,7 @@ include $(shell curl --silent -o .build-harness "https://raw.githubusercontent.c
 install:
 	apk add --update $$(grep -v '^#' packages.txt)
 	ln -s $$(pwd)/atlantis-server /etc/init.d/atlantis-server.sh
-	curl -o /usr/bin/atlantis https://github.com/cloudposse/atlantis/releases/download/0.5.2/atlantis_linux_amd64
+	curl -sSL -o /usr/bin/atlantis https://github.com/cloudposse/atlantis/releases/download/0.5.2/atlantis_linux_amd64
 	chmod 755 /usr/bin/atlantis
 
 ## Run atlantis (for local development)
